@@ -20,6 +20,11 @@ pipeline {
                  }
             }
         }
+        stage('Fix Permissions') {
+            steps {
+                sh 'chmod +x jenkins/scripts/deliver.sh'
+            }
+        }
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
